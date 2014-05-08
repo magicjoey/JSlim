@@ -16,12 +16,20 @@
  * 预计完成时间2014/05/31
  * 本版本仅保证正确，不做异常处理
  */
+(function(){
 
 //JSlim的构造函数
 function JSlim(param){
-    var elements = new Array();
+    //var elements = new Array();
 
-    var cur;
+    var cur,
+        //自引用
+        root = this,
+        //引用浏览器的宿主对象
+        win = window,
+        nav = navigator,
+        doc = document,
+        scr = screen;
 
     //判断一个选择符是不是id格式，当然咯，应该不会有人用数字开头吧
     var reid=/^#[a-zA-z0-9_]+$/;
@@ -246,3 +254,4 @@ JSlim.find=function(term,re){
     }
 }
 
+})();//匿名函数的自调用
