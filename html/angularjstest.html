@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript">
+        function HelloController($scope) {
+            $scope.greeting = { text: 'Hello' };
+            //这里可以使用$location对象来做一些很酷的事情...
+
+        }
+    </script>
+</head>
+<body>
+
+    <div ng-controller="HelloController">
+        <input ng-model="greeting.text">
+        <p>{{greeting.text}},World!</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+    <title></title>
+    <!--<script type="text/javascript" src="../js/jquery-1.0.js"></script>-->
+    <script type="text/javascript" src="../jslim/JSlim0.0.1.js"></script>
+</head>
+<body>
+
+    <div id="test">fsdfsd</div>
+    <script>
+
+
+        function A(){
+        }
+        A.prototype={
+            funcA:function(){
+                alert("I am A");
+            },
+            funcB:function(){
+                this.funcA();
+            }
+        }
+        var a=new A();
+
+        a.funcB();
+
+
+
+
+//       callback({success:function(){alert("wocao");}});
+//        function callback(data){
+//            alert(typeof data['success']);
+//            data['success']();
+//        }
+    </script>
+</body>
+</html>

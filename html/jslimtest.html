@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    var reid=/^#[a-zA-z0-9_]+$/;
+    //alert(reid.test("#_bb12"));
+//    a();
+
+//    function a(){
+//        if(true){
+//            var a="hello world";
+//        }
+//        alert(a);
+//    }
+
+
+//    var a;
+//    function a(x) {
+//        return x * 2;
+//    }
+//    alert(a);
+
+//    function b(x, y, a) {
+//        alert(arguments[2]);
+//        arguments[2] = 10;
+//
+//        alert(a);
+//    }
+//    b(1, 2, 3)
+//    function a() {
+//        alert(this);
+//    }
+//    a.call(null);
+//    var a = 1,
+//            b = function a(x) {
+//                x && a(--x);
+//            };
+//    alert(a);
+
+//    alert("dd" in window);
+//    if(false){
+//        var dd="a";
+//    }
+//    console.log("Why am I a " + typeof + "");
+//    var a, b  =  function a(x) { x && a(--x); };alert(a);
+    function formatName(name){
+        var pos=name.indexOf("-");
+        while(pos){
+            name = name.substring(0,pos)+name.charAt(pos+1).toUpperCase()+name.substring(pos+2);
+            pos=name.indexOf("-");
+            alert(pos);
+        }
+        return name;
+    }
+
+    console.log(formatName("background-image-name"));
+
+
+</script>
+</body>
+</html>
