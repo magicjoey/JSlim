@@ -18,7 +18,7 @@ function jQuery(a,c) {
 		return jQuery(document).ready(a);
 
 	// Make sure that a selection was provided
-	a = a || jQuery.context || document;
+	a = a || jQuery.context || document;//a值若不为null或undefined，则a=a;否则的话就会a=jQuery.context或者document;
 
 	// Watch for when a jQuery object is passed as the selector
 	if ( a.jquery )

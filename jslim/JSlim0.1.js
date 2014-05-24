@@ -16,31 +16,55 @@
  * 预计完成时间2014/05/31
  * 本版本仅保证正确，不做异常处理
  */
+
+
+/**
+ *
+ *
+ */
 (function(){
+    //严格模式强制错误检查
+    'use strict';
+    //创建数组原型，对象原型和方法原型的快速引用
+    var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
-//JSlim的构造函数
-function JSlim(param){
-    //var elements = new Array();
+    // 创建快速方法引用
+    var
+        push             = ArrayProto.push,
+        slice            = ArrayProto.slice,
+        concat           = ArrayProto.concat,
+        toString         = ObjProto.toString,
+        hasOwnProperty   = ObjProto.hasOwnProperty;
 
-    var cur,
-        //自引用
-        root = this,
+    //自引用
+    var  root = this,
         //引用浏览器的宿主对象
         win = window,
         nav = navigator,
         doc = document,
         scr = screen;
 
-    //判断一个选择符是不是id格式，当然咯，应该不会有人用数字开头吧
-    var reid=/^#[a-zA-z0-9_]+$/;
+    //用到的正则表达式
+
+    //判断一个选择符是不是id格式
+        var reid=/^#[a-zA-z0-9_]+$/;
+
+//JSlim的构造函数
+function JSlim(selector){
+    //处理$(),$(""),$(undefined),$(false)的情况。当做$来处理
+    if(!selector){
+        return this;
+    }
+
+    var cur;
 
     //ie8+和其它浏览器都支持这种写法
-    if(reid.test(param)){//调用id
-        cur = document.getElementById(param);
+    if(reid.test(selector)){//调用id
+        cur = document.getElementById(selector);
         elements.push(cur);
         return cur;
     }else if(document.querySelectorAll){
-        elements.push(document.querySelectorAll(param));
+        elements.push(document.querySelectorAll(selector));
     }else{//针对ie6和ie7
 
     }
@@ -184,11 +208,11 @@ JSlim.prototype ={
         }
     },
 
-    on:function(v,func){
+   /* on:function(v,func){
         if(document.addEventListener){
 
         }
-    },
+    },*/
     off:function(v,func){
 
     },

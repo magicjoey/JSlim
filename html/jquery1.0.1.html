@@ -3,13 +3,25 @@
 <meta charset="UTF-8">
 <head>
     <title></title>
-    <!--<script type="text/javascript" src="../js/jquery-1.0.js"></script>-->
-    <script type="text/javascript" src="../jslim/JSlim0.0.1.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.0.js"></script>
+    <script type="text/javascript" src="../jslim/JSlim0.1.js"></script>
 </head>
 <body>
 
     <div id="test">fsdfsd</div>
     <script>
+        //测试用例
+        (function(){
+            var a="test1"||"test2"||"test3";
+            console.log("a:"+a);
+            var b=undefined||"test2"||"test3";
+            console.log("b:"+b);
+            var c=undefined||null||"test3";
+            console.log("c:"+c);
+
+            console.log($("#test").html());
+
+        })();
 
 
         function A(){
@@ -24,7 +36,7 @@
         }
         var a=new A();
 
-        a.funcB();
+        //a.funcB();
 
 
 
