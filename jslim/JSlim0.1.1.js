@@ -29,14 +29,15 @@ function $(selector,context){
 
     win.$ = $;
 
+
 //定义JSlim的原型方法
 $.fn=$.prototype={
     constructor:$,
     init:function(selector,context){
         var nodes = doc.querySelectorAll(selector);
         this.length = nodes.length;
-       for(var i=0;i<this.length;i++){
-        this[i]=nodes[i];
+        for(var i=0;i<this.length;i++){
+            this[i]=nodes[i];
         }
         //1,处理空字符串，null、undefined类型
        /* if(!selector){
