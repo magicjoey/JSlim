@@ -1,5 +1,5 @@
 /**
- * 由 霓虹彩雀 创建于2014-3-29.
+ * 由 out_lier 创建于2014-3-29.
  * 电子邮箱：out_lier@126.com
  * JSlim支持绝大部分jquery的函数，用法也一致。借鉴了很多jquery的东西，对jquery进行了瘦身和简化。可以理解JSlim为Slim Jquery。
  * 注：JSlim与jQuery冲突。
@@ -19,7 +19,8 @@
 
 
 /**
- *
+ *此版本的缺陷：
+ *  1)全面不支持ie7及以前浏览器（选择器的实现依赖于querySelector和querySelectorAll）
  *
  */
 (function(){
@@ -43,7 +44,6 @@
         nav = navigator,
         doc = document,
         scr = screen;
-
     //用到的正则表达式
 
     //判断一个选择符是不是id格式
@@ -51,36 +51,37 @@
 
 //JSlim的构造函数
 function JSlim(selector){
-    //处理$(),$(""),$(undefined),$(false)的情况。当做$来处理
+       //处理$(),$(""),$(undefined),$(false)的情况。当做$来处理
+
     if(!selector){
         return this;
     }
 
-    var cur;
+    console.log("entry JSlim Constructor:"+selector);
 
-    //ie8+和其它浏览器都支持这种写法
-    if(reid.test(selector)){//调用id
-        cur = document.getElementById(selector);
-        elements.push(cur);
-        return cur;
-    }else if(document.querySelectorAll){
-        elements.push(document.querySelectorAll(selector));
-    }else{//针对ie6和ie7
-
+    var elems;
+    if(reid.test(selector)){
+        elems=doc.getElementById(selector.substring(1));
+        if(elems){
+            console.log(elems);
+            return elems;
+            //this[0]=elems;
+        }
+    }else{
+        elems=document.querySelectorAll(selector);
+        if(elems){
+            this.push(elems);
+        }
     }
-    if(elements.length>0){
-        cur=elements[0];
-    }
-    return elements;
 }
 //JSlim的初始化
-var _JSlim=new JSlim(),
-    $=JSlim;
+ win.JSlim=JSlim;
+
 //JSlim的原型重写
 //JSlim.fn =
 JSlim.prototype ={
     constructor : JSlim,
-    version:"0.0.1",
+    version:"0.1",
 
     <!--常用函数开始-->
     IEName:function(name){//IE属性名？TODO
@@ -127,6 +128,20 @@ JSlim.prototype ={
         }
     },
     <!--属性&样式结尾-->
+    <!--值&表单开始-->
+    val:function(){
+
+    },
+    html:function(paramA){
+       //属性A不为空，则将该值设为paramA
+        if(paramA){
+
+        //属性值为空，返回Dom的html值
+        }else{
+            return this.innerHTML;
+        }
+    },
+    <!--值&表单结束-->
     <!--事件绑定开始-->
         on:function(type,se,data,fn,de){
 

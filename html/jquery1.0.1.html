@@ -10,8 +10,19 @@
 
     <div id="test">fsdfsd</div>
     <script>
+        //alert(/^#[a-zA-z0-9_]+$/.test("#id"));
+        alert(JSlim("#test"));
+
+        //console.log(JSlim("#test").html());
+
         //测试用例
         (function(){
+//            console.log(window.jQuery)
+
+        })();
+
+
+        function test1(){
             var a="test1"||"test2"||"test3";
             console.log("a:"+a);
             var b=undefined||"test2"||"test3";
@@ -21,8 +32,7 @@
 
             console.log($("#test").html());
 
-        })();
-
+        }
 
         function A(){
         }
