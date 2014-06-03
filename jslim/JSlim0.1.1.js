@@ -35,7 +35,7 @@ $.fn=$.prototype={
         if(!selector){
             return this;
         }
-        //1,处理调用时函数体中的$(this)和$(DOMElement)
+        //,处理调用时函数体中的$(this)和$(DOMElement)
         /*<!--处理的类型包括：
             1)Node.ELEMENT_NODE(1) *******
             2)Node.ATTRIBUTE_NODE(2)
@@ -317,11 +317,27 @@ $.fn=$.prototype={
     css:function(){
 
     },
-    attr:function(){
+    hasAttr:function(){
 
     },
-    html:function(){
+    attr:function(paramA,paramB){
+        if(!paramB){
+            this[0][paramA] = paramB;
+        }else if(this.isJSONLike(paramA)){
+            for(var key in paramA){
+                this[0][key] = paramA[key];
+            }
+        }else{
+            return this[0][paramA];
+        }
+
+    },
+    html:function(param){
+        if(!param){
         return this[0].innerHTML;
+        }else{
+        this[0].innerHTML=param;
+        }
     },
     /*表单操作*/
     //表单序列化,取自《js高级编程》 v3 p436
@@ -434,6 +450,9 @@ $.fn=$.prototype={
         }else{
             return false;
         }
+    },
+    isJSONLike:function(param){
+        return true;
     },
     indexOf:function(array,key){
         if(ArrayProto.indexOf){
