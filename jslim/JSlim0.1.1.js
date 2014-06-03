@@ -1,3 +1,5 @@
+//Welcome Jia Ju
+
 //函数自引用
 (function(){
 //严格模式强制错误检查
