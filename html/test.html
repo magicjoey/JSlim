@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .div1{
+           font-size:30px;
+        }
+        .div2{
+            color:red;
+        }
+        .div3{
+            font-weight:bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="aa" class="div1 div2 div3">fksjkfljsdlfjslk</div>
+<script type="text/javascript">
+/*
+    var supportsDOM2CSS = document.implementation.hasFeature("CSS","2.0");
+    var supportsDOM2CSS2 = document.implementation.hasFeature("CSS2","2.0");
+    alert(supportsDOM2CSS);
+    alert(supportsDOM2CSS2);
+*/
+
+    var aa = document.getElementById("aa");
+//alert(aa.classList instanceof Array);
+ //   aa.classList.add("div1");
+//   alert("aa".length)
+    var className = aa.className//.split(/\s+/);
+//    alert(className);
+
+var isArrayLike =function(param){
+    if(param&&!(param instanceof String)&&param.length){
+        return true;
+    }else{
+        return false;
+    }
+}
+//    alert(isArrayLike(aa.classList));
+    var dd = [1,2,3];//.indexOf(1));
+var ArrayProto = Array.prototype;
+if(ArrayProto.indexOf){
+    alert("hello");
+}else{
+    alert("ie");
+}
+//var i = dd.indexOf(1);
+//alert(i);
+
+
+    dd.splice(i,1);
+    alert(dd);
+</script>
+
+</body>
+</html>

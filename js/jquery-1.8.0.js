@@ -103,11 +103,11 @@ jQuery.fn = jQuery.prototype = {
 		}
 
 		// Handle $(DOMElement)
-		if ( selector.nodeType ) {
-			this.context = this[0] = selector;
-			this.length = 1;
-			return this;
-		}
+        if ( selector.nodeType ) {
+            this.context = this[0] = selector;
+            this.length = 1;
+            return this;
+        }
 
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {

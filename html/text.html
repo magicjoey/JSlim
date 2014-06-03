@@ -8,8 +8,15 @@
 <p id="aa">fsf<p>
 <p>fjskd</p>
 <p>fsd</p>
+<input type="text" id="bb" value="fsjfkj">
 <script>
-    alert($("#aa").html());
+   $("#aa").click(function(){
+    $(this).hide();
+   });
+    $("#bb").click(function(){
+        alert($(this).val());
+    });
+
 
 
 </script>
