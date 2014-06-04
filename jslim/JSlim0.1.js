@@ -19,7 +19,7 @@
 
 
 /**
- *此版本的缺陷：
+ *此版本的缺陷：我是ben
  *  1)全面不支持ie7及以前浏览器（选择器的实现依赖于querySelector和querySelectorAll）
  *
  */
