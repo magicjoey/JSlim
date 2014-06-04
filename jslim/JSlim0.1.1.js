@@ -22,6 +22,9 @@ var  root = this,
     doc = document,
     scr = screen;
 
+//判断一个选择符是不是id格式
+    var reid=/^#[a-zA-z0-9_]+$/;
+
 //构造函数，选择器的入口
 function $(selector,context){
     //构造函数，选择器的具体实现
@@ -59,15 +62,32 @@ $.fn=$.prototype={
             return this;
         }
         var nodes;
-        //2,处理选择器为string类型
-         nodes = doc.querySelectorAll(selector);
-        this.length = nodes.length;
-        for(var i=0;i<this.length;i++){
-            this[i]=nodes[i];
+        if(!context) {
+            if(reid.test(selector)){
+                this[0] = doc.getElementById(selector.substring(1));
+                this.length=1;
+                return this;
+            }
+            //2,处理选择器为string类型
+            nodes = doc.querySelectorAll(selector);
+            this.length = nodes.length;
+            for (var i = 0; i < this.length; i++) {
+                this[i] = nodes[i];
+            }
+        }else{
+            nodes = context.querySelectorAll(selector);
+            this.length = nodes.length;
+            for (var i = 0; i < this.length; i++) {
+                this[i] = nodes[i];
+            }
         }
     },
     version:'0.1.1',
     length:0,
+    each:function(){
+
+
+    },
     //将本对象转化为纯数组对象
     valueOf:function(){
         return ArrayProto.slice.call(this);

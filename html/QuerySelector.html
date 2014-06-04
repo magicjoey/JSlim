@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .div1{
+            font-size:30px;
+        }
+        .div2{
+            color:red;
+        }
+        .div3{
+            font-weight:bold;
+        }
+
+    </style>
+</head>
+<body>
+<div id="diudiu">
+<div id="aa" class="div1 div2 div3">fksjkfljsdlfjslk</div>
+</div>
+
+<script type="text/javascript">
+    var a = document.querySelectorAll('#diudiu');
+    for(var i=0;i< a.length;i++){
+        alert(a[i].querySelector(".div1").innerHTML);
+    }
+
+
+</script>
+
+</body>
+</html>
